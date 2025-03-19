@@ -18,8 +18,8 @@ class TradeOfferHistoryTestCase(TestCase):
         cls.receiver = User.objects.create(username="gimli", user_type=User.DWARF)
 
         # Create Weapons & Variants
-        cls.sword = Weapon.objects.create(type=1)  # Sword
-        cls.staff = Weapon.objects.create(type=2)  # Staff
+        cls.sword = Weapon.objects.create(type=Weapon.SWORD)
+        cls.staff = Weapon.objects.create(type=Weapon.STAFF)
         cls.red_sword = WeaponVariant.objects.create(weapon=cls.sword, variant_name="Red")
         cls.blue_staff = WeaponVariant.objects.create(weapon=cls.staff, variant_name="Blue")
 
