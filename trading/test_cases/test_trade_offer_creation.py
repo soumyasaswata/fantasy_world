@@ -30,7 +30,7 @@ class TradeOfferTestCase(TestCase):
         # Create a pending trade offer
         cls.pending_trade = TradeOffer.objects.create(sender=cls.sender, receiver=cls.receiver, status=TradeOffer.PENDING, created_at=now())
 
-    # ------------------ ✅ Trade Offer Creation ------------------
+
     def test_create_trade_offer(self):
         """Test successful trade offer creation."""
         data = {
@@ -41,8 +41,8 @@ class TradeOfferTestCase(TestCase):
         }
         response = self.client.post(
             reverse("trade-offer-create"),
-            data=json.dumps(data),  # 🔹 Ensure JSON serialization
-            content_type="application/json"  # 🔹 Explicitly set JSON format
+            data=json.dumps(data),
+            content_type="application/json"
         )
         self.assertEqual(response.status_code, 201)
         self.assertIn("trade_offer_id", response.json())
@@ -79,7 +79,6 @@ class TradeOfferTestCase(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn("error", response.json())
 
-    # ------------------ ✅ Trade Offer Acceptance & Rejection ------------------
     def test_accept_trade_offer(self):
         """Test successful trade offer acceptance."""
         data = {"receiver_id": self.receiver.id, "action": "ACCEPT"}

@@ -13,7 +13,7 @@ class TradeOfferHistoryTestCase(TestCase):
         """Set up test data once for all test cases (faster than setUp)."""
         cls.client = APIClient()
 
-        # Create Users (fixing missing `user_type`)
+        # Create Users
         cls.sender = User.objects.create(username="gandalf", user_type=User.WIZARD)
         cls.receiver = User.objects.create(username="gimli", user_type=User.DWARF)
 

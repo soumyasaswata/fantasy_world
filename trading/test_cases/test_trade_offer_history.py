@@ -15,23 +15,22 @@ class TradeOfferHistoryTestCase(TestCase):
         cls.sender = User.objects.create(username="gandalf", user_type=User.WIZARD)
         cls.receiver = User.objects.create(username="gimli", user_type=User.DWARF)
 
-        # 🔹 Ensure trade offers are created within the test range (March 8 - March 13, 2025)
         cls.trade_accepted = TradeOffer.objects.create(
             sender=cls.sender, receiver=cls.receiver, 
             status=TradeOffer.ACCEPTED, 
-            created_at=make_aware(datetime(2025, 3, 10, 12, 0))  # ✅ Inside range
+            created_at=make_aware(datetime(2025, 3, 10, 12, 0))
         )
 
         cls.trade_rejected = TradeOffer.objects.create(
             sender=cls.sender, receiver=cls.receiver, 
             status=TradeOffer.REJECTED, 
-            created_at=make_aware(datetime(2025, 3, 12, 15, 30))  # ✅ Inside range
+            created_at=make_aware(datetime(2025, 3, 12, 15, 30))
         )
 
         cls.trade_pending = TradeOffer.objects.create(
             sender=cls.sender, receiver=cls.receiver, 
             status=TradeOffer.PENDING, 
-            created_at=make_aware(datetime(2025, 3, 18, 10, 45))  # ❌ OUTSIDE RANGE
+            created_at=make_aware(datetime(2025, 3, 18, 10, 45))
         )
 
     def test_get_all_trade_offers(self):
