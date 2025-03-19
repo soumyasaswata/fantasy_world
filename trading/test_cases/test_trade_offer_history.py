@@ -37,7 +37,7 @@ class TradeOfferHistoryTestCase(TestCase):
         """Test retrieving all trade offers for a user."""
         response = self.client.get(reverse("trade-offer-history"), {"user_id": self.receiver.id})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.json()), 3)  # Expecting 3 trade offers in total
+        self.assertEqual(len(response.json()), 3)
 
     def test_get_sent_trade_offers(self):
         """Test retrieving only sent trade offers."""
