@@ -35,8 +35,8 @@ The backend follows a **modular and extendable** architecture using **Django and
 
 ### 1️⃣ **Clone the Repository**
 ```sh
-git clone https://github.com/your-repo/fantasy-trading.git
-cd fantasy-trading
+git clone https://github.com/soumyasaswata/fantasy_world.git
+cd fantasy_world
 ```
 
 ### 2️⃣ **Create & Activate Virtual Environment**
